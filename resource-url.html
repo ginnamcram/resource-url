@@ -1,10 +1,16 @@
 <link rel="import" href="bower_components/polymer/polymer.html">
 <script>
+'use strict';
 Polymer({
 	is 		: 'resource-url',
-	extends : 'input',
+	extends : 'a',
 	ready: function(){
-		
+		var href 	= this.getAttribute('href');
+		var me 		= this;
+		href = href.replace(/\{[a-z0-9]+\}/gi, function(match){
+			return me.getAttribute( match.substring(1, match.length-1) );
+		});
+		this.setAttribute('href', href);
 	}
 });
 </script>
