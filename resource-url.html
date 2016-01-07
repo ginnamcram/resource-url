@@ -8,7 +8,7 @@ Polymer({
 		var href 	= this.getAttribute('href');
 		var me 		= this;
 		href = href.replace(/\{[a-z0-9]+\}/gi, function(match){
-			return me.getAttribute( match.substring(1, match.length-1) );
+			return encodeURIComponent(me.getAttribute( match.substring(1, match.length-1) ) );
 		});
 		this.setAttribute('href', href);
 	}

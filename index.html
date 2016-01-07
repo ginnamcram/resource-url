@@ -5,6 +5,6 @@
   </head>
   <body>
     <p><a href="/resource/{resourceID}" resourceID="123" is="resource-url">Some <b>Text</b></a></p>
-    <p><a href="/resource/{resourceID}/subresource/{id2}" resourceID="123" id2="456" is="resource-url">Some <b>Text</b></a></p>
+    <p><a href="/resource/{resourceID}/subresource/{id2}" resourceID="123" id2="+unencoded/paramvalue" is="resource-url">Some <b>Text</b></a></p>
   </body>
 </html>
