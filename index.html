@@ -2,9 +2,15 @@
   <head>
     <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
     <link rel="import" href="resource-url.html">
+    <link rel="import" href="bower_components/paper-button/paper-button.html">
   </head>
   <body>
     <p><a href="/resource/{resourceID}" resourceID="123" is="resource-url">Some <b>Text</b></a></p>
     <p><a href="/resource/{resourceID}/subresource/{id2}" resourceID="123" id2="+unencoded/paramvalue" is="resource-url">Some <b>Text</b></a></p>
+    
+    <a href="/resource/{resourceID}/subresource/{id2}" resourceID="123" id2="+unencoded/paramvalue" is="resource-url" target="new">
+      <paper-button raised>Open in new Window</paper-button>
+    </a>
+
   </body>
 </html>
