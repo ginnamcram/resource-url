@@ -5,12 +5,16 @@ Polymer({
 	is 		: 'resource-url',
 	extends : 'a',
 	ready: function(){
-		var href 	= this.getAttribute('href');
-		var me 		= this;
-		href = href.replace(/\{[a-z0-9]+\}/gi, function(match){
-			return encodeURIComponent(me.getAttribute( match.substring(1, match.length-1) ) );
-		});
-		this.setAttribute('href', href);
+		var href = this.getAttribute('href'), me = this;
+		this.setAttribute(
+			'href',
+			href.replace(/\{[a-z0-9]+\}/gi, function(match){
+				return 	encodeURIComponent( 
+							me.getAttribute( match.substring(1, match.length-1) )
+						);
+				}
+			)
+		);
 	}
 });
 </script>
