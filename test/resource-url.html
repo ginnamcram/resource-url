@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>resource-url tests</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <script src="../../webcomponentsjs/webcomponents.js"></script>
+  <script src="../../web-component-tester/browser.js"></script>
+  <link href="../resource-url.html" rel="import">
+</head>
+<body>
+	
+	<a id="default" href="/resource/{resourceID}/subresource/{id2}" resourceID="123" id2="+unencoded/paramvalue" is="resource-url">
+    Some <b>Text</b>
+  </a>
+  <script>
+  test('replace path params', function() {
+    var node = document.getElementById('default');
+    assert.equal(
+    	node.href,
+      window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port: '')+
+    	'/resource/123/subresource/%2Bunencoded%2Fparamvalue' );
+  });
+  </script>
+</body>
+</html>
